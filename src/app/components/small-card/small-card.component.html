@@ -3,14 +3,14 @@
   <div class="container__small-card-content">
     <div class="small-card__photo">
       <img
-        src="{{ photoCover }}"
+        src=""
         alt=""
         srcset=""
       >
     </div>
 
     <div class="small-card__title">
-      <h1><a [routerLink]="['content', Id]" >{{ cardTitle }}</a></h1>
+      <h2><a [routerLink]="['content', report?.id]" >{{ report?.titulo }}</a></h2>
     </div>
   </div>
 

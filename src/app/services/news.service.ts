@@ -6,12 +6,11 @@ import { root } from '../Models/root';
   providedIn: 'root',
 })
 export class NewsService {
-  private apiEndpoint = `https://servicodados.ibge.gov.br/api/v3/noticias/?busca=ciencia&qtd=5`;
+  private apiEndpoint = `https://servicodados.ibge.gov.br/api/v3/noticias/`;
 
   constructor(private http: HttpClient) {}
 
   getNews() {
-    return this.http.get<root[]>(`${this.apiEndpoint}`);
+    return this.http.get<root>(`${this.apiEndpoint}?busca=games&qtd=4`);
   }
-  getNewsById(id: number) {}
 }
