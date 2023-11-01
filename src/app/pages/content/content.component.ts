@@ -17,6 +17,7 @@ export class ContentComponent implements OnInit {
   photoCover: string = '';
   contentTitle: string = '';
   contentDescription: string = '';
+  report: noticia | undefined;
   constructor(
     private route: ActivatedRoute,
     private newsService: NewsService
@@ -27,8 +28,8 @@ export class ContentComponent implements OnInit {
       (value) => (this.id = parseInt(value.get('id') ?? '', 10))
     );
     let reports = await lastValueFrom(this.newsService.getNews());
-    let report = reports.items.find((x) => x.id == this.id);
-    this.setValuesToComponent(report);
+    this.report = reports.items.find((x) => x.id == this.id);
+    this.setValuesToComponent(this.report);
   }
 
   setValuesToComponent(item: noticia | undefined) {
